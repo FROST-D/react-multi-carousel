@@ -71,16 +71,26 @@ const CarouselItems = ({
               style={{
                 flex: shouldRenderOnSSR ? `1 0 ${flexBisis}%` : "auto",
                 position: "relative",
-                width: domFullyLoaded
-                  ? `${
-                      // old wrongly spelt partialVisbile prop kept to not make changes breaking
-                      (partialVisbile || partialVisible) &&
-                      partialVisibilityGutter &&
-                      !notEnoughChildren
-                        ? itemWidth - partialVisibilityGutter
-                        : itemWidth
-                    }px`
-                  : "auto"
+                // width: domFullyLoaded
+                //   ? `${
+                //       // old wrongly spelt partialVisbile prop kept to not make changes breaking
+                //       (partialVisbile || partialVisible) &&
+                //       partialVisibilityGutter &&
+                //       !notEnoughChildren
+                //         ? itemWidth - partialVisibilityGutter
+                //         : itemWidth
+                //     }px`
+                //   : "auto"
+                //   ? `${
+                //     // old wrongly spelt partialVisbile prop kept to not make changes breaking
+                //     (partialVisbile || partialVisible) &&
+                //     partialVisibilityGutter &&
+                //     !notEnoughChildren
+                //       ? itemWidth - partialVisibilityGutter
+                //       : itemWidth
+                //   }px`
+                // : "auto"
+                width: domFullyLoaded ? `${itemWidth}px` : "auto"
               }}
               className={`react-multi-carousel-item ${
                 getIfSlideIsVisbile(index, state)
