@@ -102,8 +102,9 @@ function getTransformForPartialVsibile(
     return baseTransform;
   }
   let transform = baseTransform + currentSlide * partialVisibilityGutter;
-  if (props.centerMode){
-    transform = baseTransform - (props.centerMode ? partialVisibilityGutter : 0);
+  if (props.centerMode) {
+    transform =
+      baseTransform - (props.centerMode ? partialVisibilityGutter : 0);
   }
 
   if (shouldRemoveRightGutter) {
@@ -140,7 +141,7 @@ function getTransform(
     state.deviceType
   );
   const currentTransform =
-    partialVisible || partialVisbile && !centerMode
+    partialVisible || (partialVisbile && !centerMode)
       ? getTransformForPartialVsibile(
           state,
           partialVisibilityGutter,
@@ -149,11 +150,11 @@ function getTransform(
         )
       : centerMode
       ? getTransformForCenterMode(
-        state,
-        props,
-        transformPlaceHolder,
-        partialVisibilityGutter
-      )
+          state,
+          props,
+          transformPlaceHolder,
+          partialVisibilityGutter
+        )
       : transform;
   return parsePosition(props, currentTransform);
 }
